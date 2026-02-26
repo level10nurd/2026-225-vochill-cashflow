@@ -1,0 +1,34 @@
+# Example Unsecured Term Loan Configuration
+# Standard amortizing term loan, no collateral
+
+loan_id: "unsecured_001"
+loan_name: "Unsecured Business Term Loan"
+lender: "Bluevine"
+loan_type: "Term Loan"
+
+# Loan amounts
+original_amount: 75000.00
+current_balance: 62000.00
+
+# Interest rate
+annual_rate: 0.1150  # 11.50% (higher rate due to unsecured)
+
+# Payment timing
+payment_day: 20  # 20th of month
+
+# Loan term dates
+start_date: "2024-03-20"
+maturity_date: "2027-03-20"  # 3-year term
+
+# Payment structure
+structure_choice: "2"  # P&I from start
+io_months: 0
+amort_months: 36  # 3 years
+fixed_payment: null
+balloon_amount: null
+
+# Notes
+# - No collateral (unsecured)
+# - Higher interest rate typical for unsecured debt
+# - Fixed monthly payment
+# - Use for working capital, marketing, etc.

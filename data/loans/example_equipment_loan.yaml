@@ -1,0 +1,34 @@
+# Example Equipment Loan Configuration
+# Copy this file and customize for your actual loan
+
+loan_id: "equipment_loan_001"
+loan_name: "Equipment Loan - Reflex Medical Equipment"
+lender: "Wells Fargo Equipment Finance"
+loan_type: "Equipment Loan"
+
+# Loan amounts
+original_amount: 150000.00
+current_balance: 125000.00  # Adjust based on payoff statement
+
+# Interest rate
+annual_rate: 0.0725  # 7.25%
+
+# Payment timing
+payment_day: 15  # Payment due on 15th of each month
+
+# Loan term dates
+start_date: "2023-06-15"
+maturity_date: "2028-06-15"  # 5-year term
+
+# Payment structure
+# For equipment loans, typically straight P&I amortization
+structure_choice: "2"  # P&I from start
+io_months: 0
+amort_months: 60  # 5 years = 60 months
+fixed_payment: null
+balloon_amount: null
+
+# Notes
+# - Collateral: Reflex medical equipment
+# - Can prepay without penalty after 24 months
+# - Verify current balance with most recent statement
