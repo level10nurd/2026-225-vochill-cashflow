@@ -178,9 +178,8 @@ weekly_summary_df = weekly
 ```python
 # Burn rate: average weekly net cash flow (negative = outflow)
 net_flows = weekly_summary_df["net_cash_flow"]
-burn_rate = -net_flows[net_flows < 0].sum() / max(len(net_flows[net_flows < 0]), 1)
 if net_flows.sum() >= 0:
-    burn_rate = 0.0  # or define as avg of all weeks
+    burn_rate = 0.0
 else:
     burn_rate = abs(net_flows.mean())
 ```
