@@ -143,8 +143,8 @@ Again, bind `@lookback_weeks` and `@scenario_id` if Hex supports SQL parameters;
 ```python
 import pandas as pd
 
-# Starting balance: override if provided, else from v_cash_position
-if starting_balance_override is not None and starting_balance_override != "":
+# Starting balance: override if provided (non-empty, non-whitespace), else from v_cash_position
+if starting_balance_override is not None and starting_balance_override != "" and str(starting_balance_override).strip() != "":
     try:
         starting_balance = float(starting_balance_override)
     except (TypeError, ValueError):
