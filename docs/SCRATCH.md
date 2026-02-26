@@ -59,3 +59,12 @@ Im thinking that we should identify new tables that need to be added to bigquery
   - provide checklist so i can pull data together
 - you mentioned current cashflow shows eekly Expenses: $105,137/week. how can you possibly know that? we haven't uploaded data. where is this coming from?
 - what is the best way to automate/integrate the flow of this data from bill.com and quickbooks online into bigquery
+
+# Phaase Notes
+## Phases
+- **Phase 3 (Forecasting):** this is not needed. I have a seperate preo `/Users/dalton/Documents/projects/20260225-vochill-forecasting/` dedicated to this calculation. this is being built in hex as well, so we will connect it all up
+- **Phase 4:** we don't need an excel output, we need to build it out as a hex project. We ned to buildout a hex happ similar to what was done in `/Users/dalton/Documents/projects/20260225-vochill-forecasting/`
+
+## Other
+- ARCHITECTURE.md updates: please update
+- SCRATCH.md: keep. this is where i am putting temporary thoughts and notes
