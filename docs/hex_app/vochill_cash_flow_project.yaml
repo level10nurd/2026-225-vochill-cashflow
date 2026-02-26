@@ -1,0 +1,173 @@
+# VoChill Cash Flow — Hex project (experimental)
+# Import: Hex → Projects → Import → upload this file.
+# If Hex rejects this format, use vochill_cash_flow_starter.ipynb instead.
+# Hex project export schema is not public; this structure may need to match Hex's export format.
+
+name: VoChill Cash Flow
+description: Cash position, runway, and 13-week cash flow from BigQuery (vochill.revrec).
+
+cells:
+  - type: markdown
+    content: |
+      # VoChill Cash Flow — Full Project
+
+      **Import this file:** Hex → Projects → **Import** → upload this `.yaml` or the `.ipynb` file. Set your BigQuery connection (project `vochill`, dataset `revrec`) and **Run All**.
+
+      View current cash position, runway, and 13-week cash flow. Data is read from BigQuery (`vochill.revrec`).
+
+      - **Scenario:** base / best / worst (edit the next cell or add Hex Inputs).
+      - **Lookback weeks:** default 13.
+      - **Starting balance override:** leave empty to use `v_cash_position`.
+
+  - type: code
+    content: |
+      # Inputs — in Hex you can replace with Input cells
+      scenario_id = "base"
+      lookback_weeks = 13
+      starting_balance_override = None
+
+  - type: code
+    content: |
+      # Data: fetch from BigQuery
+      from google.cloud import bigquery
+      import pandas as pd
+      import os
+
+      client = bigquery.Client(project=os.environ.get("GCP_PROJECT_ID", "vochill"))
+
+      def run_query(sql: str) -> pd.DataFrame:
+          return client.query(sql).to_dataframe()
+
+      cash_transactions_df = run_query(f"""
+      SELECT cash_date, cash_flow_section, cash_flow_category, amount, is_forecast, scenario_id, description
+      FROM `vochill.revrec.cash_transactions`
+      WHERE cash_date >= DATE_SUB(CURRENT_DATE(), INTERVAL {lookback_weeks} WEEK)
+        AND (is_forecast = FALSE OR (is_forecast = TRUE AND scenario_id = '{scenario_id}'))
+      ORDER BY cash_date
+      """)
+
+      cash_position_df = run_query("""
+      SELECT total_cash, total_loc_balance, total_loc_available, total_liquidity
+      FROM `vochill.revrec.v_cash_position`
+      """)
+
+      weekly_cash_flow_df = run_query(f"""
+      SELECT
+        DATE_TRUNC(cash_date, WEEK(MONDAY)) AS week_start,
+        DATE_ADD(DATE_TRUNC(cash_date, WEEK(MONDAY)), INTERVAL 6 DAY) AS week_end,
+        SUM(amount) AS net_cash_flow,
+        SUM(CASE WHEN amount > 0 THEN amount ELSE 0 END) AS inflows,
+        SUM(CASE WHEN amount < 0 THEN ABS(amount) ELSE 0 END) AS outflows
+      FROM `vochill.revrec.cash_transactions`
+      WHERE cash_date >= DATE_SUB(CURRENT_DATE(), INTERVAL {lookback_weeks} WEEK)
+        AND (is_forecast = FALSE OR (is_forecast = TRUE AND scenario_id = '{scenario_id}'))
+      GROUP BY week_start, week_end
+      ORDER BY week_start
+      """)
+
+      print(f"Cash transactions: {len(cash_transactions_df)} rows")
+      print(f"Cash position: {len(cash_position_df)} row(s)")
+      print(f"Weekly cash flow: {len(weekly_cash_flow_df)} rows")
+
+  - type: code
+    content: |
+      # Runway and weekly summary
+      import pandas as pd
+
+      if starting_balance_override is not None and starting_balance_override != "" and str(starting_balance_override).strip() != "":
+          try:
+              starting_balance = float(starting_balance_override)
+          except (TypeError, ValueError):
+              starting_balance = float(cash_position_df["total_liquidity"].iloc[0])
+      else:
+          starting_balance = float(cash_position_df["total_liquidity"].iloc[0])
+
+      weekly = weekly_cash_flow_df.copy()
+      weekly["week_start"] = pd.to_datetime(weekly["week_start"])
+      weekly = weekly.sort_values("week_start").reset_index(drop=True)
+      weekly["cash_balance"] = starting_balance + weekly["net_cash_flow"].cumsum()
+
+      runway_weeks = None
+      for i, row in weekly.iterrows():
+          if row["cash_balance"] < 0:
+              runway_weeks = int(weekly.index.get_loc(i) + 1)
+              break
+
+      weekly_summary_df = weekly
+
+  - type: code
+    content: |
+      # Burn rate
+      net_flows = weekly_summary_df["net_cash_flow"]
+      if net_flows.sum() >= 0:
+          burn_rate = 0.0
+      else:
+          burn_rate = abs(net_flows.mean())
+
+  - type: code
+    content: |
+      # Risk flags
+      risk_flags = []
+      if runway_weeks is not None and runway_weeks < 4:
+          risk_flags.append(f"Runway under 4 weeks ({runway_weeks} weeks)")
+      if runway_weeks is None and len(weekly_summary_df) > 0 and (weekly_summary_df["cash_balance"] < 0).any():
+          risk_flags.append("One or more weeks show negative cash balance")
+      if len(weekly_summary_df) > 0 and weekly_summary_df["cash_balance"].iloc[-1] < 0:
+          risk_flags.append("Ending cash balance is negative")
+      if not risk_flags:
+          risk_flags.append("No high-priority risk flags")
+
+  - type: markdown
+    content: |
+      ## Dashboard
+
+  - type: code
+    content: |
+      # Metrics
+      display_cash_position = starting_balance
+      display_runway = runway_weeks if runway_weeks is not None else "N/A"
+      display_burn_rate = f"${burn_rate:,.0f}/week"
+
+      print(f"Cash position:    ${display_cash_position:,.0f}")
+      print(f"Runway:            {display_runway} weeks")
+      print(f"Burn rate:         {display_burn_rate}")
+
+  - type: code
+    content: |
+      # Weekly net cash flow chart
+      import plotly.express as px
+
+      fig = px.bar(
+          weekly_summary_df,
+          x="week_start",
+          y="net_cash_flow",
+          title="Weekly Net Cash Flow",
+          labels={"net_cash_flow": "Net Cash Flow ($)", "week_start": "Week"}
+      )
+      fig.update_layout(xaxis_tickformat="%Y-%m-%d")
+      fig.show()
+
+  - type: code
+    content: |
+      # Cumulative cash balance chart
+      fig2 = px.line(
+          weekly_summary_df,
+          x="week_start",
+          y="cash_balance",
+          title="Cumulative Cash Balance",
+          labels={"cash_balance": "Cash Balance ($)", "week_start": "Week"}
+      )
+      fig2.update_layout(xaxis_tickformat="%Y-%m-%d")
+      fig2.add_hline(y=0, line_dash="dash", line_color="gray")
+      fig2.show()
+
+  - type: code
+    content: |
+      # 13-week cash flow table
+      weekly_summary_df
+
+  - type: code
+    content: |
+      # Risk flags
+      for flag in risk_flags:
+          print(f"• {flag}")
