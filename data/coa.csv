@@ -1,0 +1,206 @@
+Account List,,,,,
+VoChill Inc.,,,,,
+
+Account #,Full name,Type,Detail type,Description,Currency
+,Amazon (required for Synder),Bank,Checking,,USD
+,Amazon.ca Balance,Bank,Cash on hand,,CAD
+,Amazon.com Balance,Bank,Cash on hand,,USD
+,Amazon.com.br Balance,Bank,Cash on hand,,BRL
+,Amazon.com.mx Balance,Bank,Cash on hand,,MXN
+,Inter-Company Settlement Bank - Docyt,Bank,Trust account,,USD
+1071,Bill.com Money In Clearing,Bank,Cash on hand,For payments received via Bill.com,USD
+1072,Bill.com Money Out Clearing,Bank,Cash on hand,For payments made via Bill.com,USD
+3512,StayChill Checking,Bank,Checking,,USD
+8017,VoChill Checking,Bank,Checking,,USD
+8931,Money Market,Bank,Money Market,,USD
+,Accounts Receivable,Accounts receivable (A/R),Accounts Receivable (A/R),,USD
+,Accounts Receivable - BRL,Accounts receivable (A/R),Accounts Receivable (A/R),,BRL
+,Accounts Receivable - CAD,Accounts receivable (A/R),Accounts Receivable (A/R),,CAD
+,Accounts Receivable - MXN,Accounts receivable (A/R),Accounts Receivable (A/R),,MXN
+,Channel Clearing Account:Clearing - Paypal,Other Current Assets,Other Current Assets,,USD
+,Channel Clearing Account:Clearing - TikTok,Other Current Assets,Other Current Assets,,USD
+,Channel Clearing Account:Deposit Clearing - Afirm,Other Current Assets,Other Current Assets,,USD
+,Channel Clearing Account:Deposit Clearing - Afterpay,Other Current Assets,Other Current Assets,,USD
+,Balance Reserve,Other Current Assets,Other Current Assets,,USD
+,Inventory Asset,Other Current Assets,Inventory,,USD
+,Inventory Asset:Component Parts,Other Current Assets,Inventory,,USD
+,Prepaid Expense - Docyt,Other Current Assets,Prepaid Expenses,,USD
+,Prepaid Expenses,Other Current Assets,Prepaid Expenses,,USD
+,Prepaid Payroll,Other Current Assets,Prepaid Expenses,,USD
+,Revenue Receivables - Docyt,Other Current Assets,Other Current Assets,,USD
+,Uncategorized Asset,Other Current Assets,Other Current Assets,,USD
+,Undeposited Funds,Other Current Assets,Undeposited Funds,,USD
+,Warehouse Rental Space Deposit,Other Current Assets,Other Current Assets,,USD
+1100,Channel Clearing Account,Other Current Assets,Other Current Assets,,USD
+1101,Channel Clearing Account:Clearing - Amazon,Other Current Assets,Other Current Assets,,USD
+1102,Channel Clearing Account:Clearing - Shopify,Other Current Assets,Other Current Assets,,USD
+,Accumulated Depreciation,Fixed Assets,Accumulated Depreciation,,USD
+,Computer,Fixed Assets,Fixed Asset Computers,,USD
+,IP,Fixed Assets,Intangible Assets,,USD
+,Product Manufacturing,Fixed Assets,Other fixed assets,,USD
+,Whiskey Product Launch,Fixed Assets,Intangible Assets,,USD
+,OTHER CURRENT ASSETS,Other Assets,Accumulated Amortization of Other Assets,,USD
+,Accounts Payable (A/P),Accounts payable (A/P),Accounts Payable (A/P),,USD
+,Accounts Payable - BRL,Accounts payable (A/P),Accounts Payable (A/P),,BRL
+,Accounts Payable - CAD,Accounts payable (A/P),Accounts Payable (A/P),,CAD
+,Accounts Payable - Docyt,Accounts payable (A/P),Accounts Payable (A/P),,USD
+,Accounts Payable - MXN,Accounts payable (A/P),Accounts Payable (A/P),,MXN
+,AMEX Gold Card,Credit Card,Credit Card,,USD
+,Chase Inc,Credit Card,Credit Card,,USD
+,Parker Card,Credit Card,Credit Card,,USD
+,Parker Card 2,Credit Card,Credit Card,,USD
+,Shopify Credit Card,Credit Card,Credit Card,,USD
+,Southwest Card,Credit Card,Credit Card,,USD
+,Southwest Card:Allyson 8364,Credit Card,Credit Card,,USD
+,Southwest Card:Gason 4186,Credit Card,Credit Card,,USD
+,Southwest Card:Kasia 8636,Credit Card,Credit Card,,USD
+,Southwest Card:Lisa 8372,Credit Card,Credit Card,,USD
+,Southwest Card:Randall 8349,Credit Card,Credit Card,,USD
+,Accrued Executive Bonus,Other Current Liabilities,Loan Payable,,USD
+,Accrued Expenses,Other Current Liabilities,Other Current Liabilities,,USD
+,Accrued Income Tax,Other Current Liabilities,Federal Income Tax Payable,,USD
+,Accrued Liability - Docyt,Other Current Liabilities,Other Current Liabilities,,USD
+,Accrued Payroll,Other Current Liabilities,Payroll Clearing,,USD
+,AMZN US Sales Tax Payable,Other Current Liabilities,Sales Tax Payable,,USD
+,California Department of Tax and Fee Administration Payable,Other Current Liabilities,Sales Tax Payable,,USD
+,Customer Balance Liability,Other Current Liabilities,Other Current Liabilities,,USD
+,Deferred Revenue,Other Current Liabilities,Deferred Revenue,,USD
+,Due To/(From) Owners,Other Current Liabilities,Other Current Liabilities,,USD
+,Employee Reimbursements - Docyt,Other Current Liabilities,Other Current Liabilities,,USD
+,Gift Card Liability,Other Current Liabilities,Other Current Liabilities,,USD
+,IDEA Capital LOC,Other Current Liabilities,Line of Credit,,USD
+,Marketplace Facilitator Tax Payable,Other Current Liabilities,Other Current Liabilities,,USD
+,North Carolina Department of Revenue Payable,Other Current Liabilities,Sales Tax Payable,,USD
+,Out Of Scope Agency Payable,Other Current Liabilities,Sales Tax Payable,,USD
+,Payroll Liability - Docyt,Other Current Liabilities,Payroll Clearing,,USD
+,Priority LOC,Other Current Liabilities,Line of Credit,,USD
+,Sales Returns and Allowances,Other Current Liabilities,Deferred Revenue,,USD
+,Sales Tax,Other Current Liabilities,Sales Tax Payable,,USD
+,Sales Tax:Sales Tax,Other Current Liabilities,Sales Tax Payable,,USD
+,Shopify Gift Card Liability,Other Current Liabilities,Other Current Liabilities,,USD
+,Texas State Comptroller Payable,Other Current Liabilities,Sales Tax Payable,,USD
+,WayFlyer,Other Current Liabilities,Deferred Revenue,,USD
+,2025 Convertable Note,Long Term Liabilities,Shareholder Notes Payable,,USD
+,Carolyn Reeder Investment,Long Term Liabilities,Shareholder Notes Payable,,USD
+,Drew Zerdecki Investment,Long Term Liabilities,Notes Payable,,USD
+,Due To Randall Pawlik,Long Term Liabilities,Notes Payable,,USD
+,Equipment Loan,Long Term Liabilities,Notes Payable,,USD
+,Harrison Investments,Long Term Liabilities,Notes Payable,,USD
+,Harrison Investments:CRSFL Investment,Long Term Liabilities,Shareholder Notes Payable,,USD
+,Harrison Investments:Peak Consulting Investment,Long Term Liabilities,Notes Payable,,USD
+,Harrison Investments:Stephen Harrison Investment,Long Term Liabilities,Notes Payable,,USD
+,Jennifer Carroll Investment,Long Term Liabilities,Shareholder Notes Payable,,USD
+,Notes Payable,Long Term Liabilities,Notes Payable,,USD
+,R&P P Note,Long Term Liabilities,Shareholder Notes Payable,,USD
+,SAFE Note,Long Term Liabilities,Notes Payable,,USD
+,SBA Loan,Long Term Liabilities,Notes Payable,"$500,000 Revolving SBA Loan",USD
+,Harrison Equity,Equity,Owner's Equity,,USD
+,Investment,Equity,Owner's Equity,,USD
+,Lisa Pawlik Draws,Equity,Owner's Equity,,USD
+,Opening Balance Equity,Equity,Opening Balance Equity,,USD
+,Owner's Investment - Docyt,Equity,Owner's Equity,,USD
+,Owner's Withdraw - Docyt,Equity,Owner's Equity,,USD
+,Paid In Capital,Equity,Owner's Equity,,USD
+,Randall Pawlik Draws,Equity,Owner's Equity,Money you took out of your business to pay yourself (not payroll expenses),USD
+,Randall Pawlik Equity,Equity,Owner's Equity,,USD
+,Retained Earnings,Equity,Retained Earnings,,USD
+Draws,Harrison Equity:Harrison Equity,Equity,Owner's Equity,,USD
+,AMZN Customer Refunds,Income,Discounts/Refunds Given,,USD
+,AMZN Gift Wrap,Income,Service/Fee Income,,USD
+,AMZN Promotional rebates,Income,Other Primary Income,,USD
+,AMZN Shipping credits,Income,Other Primary Income,,USD
+,Billable Expense Income,Income,Sales of Product Income,,USD
+,Sales,Income,Sales of Product Income,,USD
+,Sales of Product Income,Income,Sales of Product Income,,USD
+,Unapplied Cash Payment Income,Income,Unapplied Cash Payment Income,,USD
+,Uncat. Income,Income,Sales of Product Income,,USD
+4001,Amazon Income,Income,Sales of Product Income,,USD
+4002,Shopify Income,Income,Sales of Product Income,,USD
+4003,TikTok Income,Income,Other Primary Income,,USD
+4004,Wholesale,Income,Sales of Product Income,,USD
+4005,Whiskey,Income,Sales of Product Income,,USD
+4031,Shipping Income,Income,Service/Fee Income,,USD
+4032,Misc. Income from Product Sales,Income,Other Primary Income,,USD
+4091,Discounts & Rebates,Income,Discounts/Refunds Given,,USD
+4092,Refunds,Income,Discounts/Refunds Given,,USD
+,Cost of Goods Sold,Cost of Goods Sold,Supplies & Materials - COGS,,USD
+,Inventory Shrinkage,Cost of Goods Sold,Supplies & Materials - COGS,,USD
+5011,Platform Selling Fees,Cost of Goods Sold,Other Costs of Services - COS,,USD
+5021,Third Party Fulfillment Fees,Cost of Goods Sold,Cost of labor - COS,,USD
+5031,Product Parts/Components of Finished Goods,Cost of Goods Sold,Supplies & Materials - COGS,,USD
+5041,Freight/Other Shipping Costs,Cost of Goods Sold,Other Costs of Services - COS,,USD
+5051,Direct Labor,Cost of Goods Sold,Cost of labor - COS,,USD
+,Amazon fees,Expenses,Commissions & fees,,USD
+,AMZN Advertising,Expenses,Advertising/Promotional,,USD
+,AMZN FBA fees,Expenses,"Shipping, Freight & Delivery",,USD
+,AMZN FBA Inventory Fees,Expenses,"Shipping, Freight & Delivery",,USD
+,AMZN Refund administration fees,Expenses,Office/General Administrative Expenses,,USD
+,AMZN Selling Fees,Expenses,Commissions & fees,,USD
+,Ask Client,Expenses,Utilities,Flagged to review with your accountant.,USD
+,Purchases,Expenses,Supplies & Materials,,USD
+,QuickBooks Payments Fees,Expenses,Other selling expenses,,USD
+,Shopify fees,Expenses,Commissions & fees,,USD
+,Unapplied Cash Bill Payment Expense,Expenses,Unapplied Cash Bill Payment Expense,,USD
+,Uncategorized Expense,Expenses,Other Miscellaneous Service Cost,,USD
+6010,Advertising & Marketing,Expenses,Advertising/Promotional,"Ads, business cards, and other marketing costs",USD
+6011,Advertising & Marketing:Facebook Ad Spend,Expenses,Advertising/Promotional,,USD
+6012,Advertising & Marketing:Google Ad Spend,Expenses,Advertising/Promotional,,USD
+6013,Advertising & Marketing:Amazon Ad Spend,Expenses,Advertising/Promotional,,USD
+6014,Advertising & Marketing:Website,Expenses,Advertising/Promotional,,USD
+6015,Advertising & Marketing:Event Fees,Expenses,Advertising/Promotional,,USD
+6016,Advertising & Marketing:Photography & Creative,Expenses,Advertising/Promotional,,USD
+6017,Advertising & Marketing:Digital Marketing Tools,Expenses,Advertising/Promotional,,USD
+6018,Advertising & Marketing:Sales Commissions,Expenses,Advertising/Promotional,,USD
+6019,Advertising & Marketing:Agency Fees,Expenses,Advertising/Promotional,,USD
+6020,Selling and Fulfillment,Expenses,Other Business Expenses,,USD
+6022,Advertising & Marketing:TikTok Ad Spend,Expenses,Advertising/Promotional,,USD
+6023,Selling and Fulfillment:Other Merchant Fees,Expenses,Other Business Expenses,,USD
+6024,Selling and Fulfillment:Repairs & Maintenance,Expenses,Rent or Lease of Buildings,"Repairs, maintenance, and cleaning for ofiice space and equipment",USD
+6025,Selling and Fulfillment:Warehouse Supplies,Expenses,Rent or Lease of Buildings,,USD
+6026,Selling and Fulfillment:Equipment Rental,Expenses,Rent or Lease of Buildings,,USD
+6029,Advertising & Marketing:Branding & Creative,Expenses,Advertising/Promotional,,USD
+6030,Professional Services,Expenses,Legal & Professional Fees,"Professional services including legal, financial, accounting, and payroll",USD
+6032,Professional Services:Legal,Expenses,Legal & Professional Fees,,USD
+6033,Professional Services:Misc. Professional Fees,Expenses,Legal & Professional Fees,,USD
+6034,Professional Services:Accounting,Expenses,Legal & Professional Fees,,USD
+6040,Payroll Expense,Expenses,Payroll Expenses,,USD
+6041,Payroll Expense:Gross Wages,Expenses,Payroll Expenses,,USD
+6042,Payroll Expense:Employer Taxes,Expenses,Payroll Expenses,,USD
+6043,Payroll Expense:Employee Benefits,Expenses,Payroll Expenses,,USD
+6044,Payroll Expense:Contract Services,Expenses,Cost of Labor,,USD
+6050,SG&A,Expenses,Office/General Administrative Expenses,,USD
+6051,SG&A:Auto,Expenses,Office/General Administrative Expenses,"Gas, repairs, insurance, and other costs for your business-only vehicle (not loan payments)",USD
+6052,SG&A:Travel,Expenses,Office/General Administrative Expenses,"Business travel including transportation, hotels, and tips (not meals)",USD
+6053,SG&A:Meals (100%),Expenses,Office/General Administrative Expenses,Travel Meals,USD
+6054,SG&A:Meals (50%),Expenses,Office/General Administrative Expenses,Client meals and entertainment and travel meals (business-related only),USD
+6055,SG&A:Rent & Lease,Expenses,Office/General Administrative Expenses,"Office space, storage, vehicle, machinery, and equipment rentals and leases (short or long-term)",USD
+6056,SG&A:Utilities,Expenses,Office/General Administrative Expenses,"Phone, gas, electric, water, internet, and other utilities for your business",USD
+6057,SG&A:Insurance,Expenses,Office/General Administrative Expenses,"Liability, fire, theft, and other insurance for your business (not health)",USD
+6058,SG&A:Bank Charges & Fees,Expenses,Office/General Administrative Expenses,Fees or charges from your bank or credit card,USD
+6059,SG&A:Dues & subscriptions,Expenses,Office/General Administrative Expenses,,USD
+6061,SG&A:Equipment < $2500,Expenses,Office/General Administrative Expenses,,USD
+6062,SG&A:Licenses,Expenses,Office/General Administrative Expenses,,USD
+6063,SG&A:Office Supplies,Expenses,Office/General Administrative Expenses,"Office, kitchen, and bathroom supplies, including software under $2,500",USD
+6064,SG&A:Software,Expenses,Office/General Administrative Expenses,,USD
+6090,Advertising & Marketing:Business Development,Expenses,Advertising/Promotional,,USD
+6098,Advertising & Marketing:Misc. Advertising,Expenses,Advertising/Promotional,,USD
+6099,Advertising & Marketing:Advertising/Promotional,Expenses,Advertising/Promotional,,USD
+,AMZN FBA inventory credit,Other Income,Other Miscellaneous Income,,USD
+,Ask Client (Income),Other Income,Other Miscellaneous Income,,USD
+7900,Timely Filing,Other Income,Tax-Exempt Interest,,USD
+7910,Other Income,Other Income,Other Miscellaneous Income,,USD
+7930,Interest Earned,Other Income,Interest Earned,,USD
+,AMZN Adjustment,Other Expense,Other Miscellaneous Expense,,USD
+,Ask Client (Expense),Other Expense,Other Miscellaneous Expense,,USD
+,Executive Bonus,Other Expense,Other Miscellaneous Expense,,USD
+,Income Tax,Other Expense,Other Miscellaneous Expense,,USD
+,Other Miscellaneous Expense,Other Expense,Other Miscellaneous Expense,,USD
+,Reconciliation Discrepancies,Other Expense,Other Miscellaneous Expense,,USD
+7920,Depreciation Expense,Other Expense,Depreciation,,USD
+8030,Interest Paid,Other Expense,Other Miscellaneous Expense,"Interest paid on loans, credit cards, and business vehicles",USD
+8040,Exchange Gain or Loss,Other Expense,Exchange Gain or Loss,,USD
+TOTAL,,,,,
+
+
+
+" Wednesday, February 25, 2026 05:23 PM GMT-08:00",,,,,

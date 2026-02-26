@@ -1,0 +1,620 @@
+# VoChill Chart of Accounts to Cash Flow Category Mapping
+#
+# This file maps every QuickBooks account to a cash flow category
+# for proper cash flow forecasting and reporting.
+#
+# Cash Flow Categories:
+# - operating_inflows: Revenue from operations
+# - operating_outflows: Operating expenses
+# - cogs: Cost of goods sold and direct costs
+# - investing_inflows: Proceeds from asset sales
+# - investing_outflows: Capital expenditures
+# - financing_inflows: Debt/equity proceeds
+# - financing_outflows: Debt payments, dividends, owner draws
+
+# ============================================================================
+# REVENUE / OPERATING INFLOWS
+# ============================================================================
+
+operating_inflows:
+  - account: "Amazon Income"
+    account_number: "4001"
+    category: "Revenue - Amazon"
+    subcategory: "Ecommerce"
+    cash_timing: "amazon_settlement"  # Bi-weekly settlements + 2 day lag
+    notes: "Gross Amazon sales before fees"
+
+  - account: "Shopify Income"
+    account_number: "4002"
+    category: "Revenue - Shopify"
+    subcategory: "Ecommerce"
+    cash_timing: "shopify_payout"  # Daily payouts (weekdays) + 2-3 day lag
+    notes: "Gross Shopify sales before fees"
+
+  - account: "TikTok Income"
+    account_number: "4003"
+    category: "Revenue - TikTok"
+    subcategory: "Ecommerce"
+    cash_timing: "tiktok_payout"  # TBD - need to document timing
+    notes: "Gross TikTok shop sales"
+
+  - account: "Wholesale"
+    account_number: "4004"
+    category: "Revenue - Wholesale"
+    subcategory: "B2B Sales"
+    cash_timing: "net_30"  # Typical wholesale terms
+    notes: "B2B wholesale channel revenue"
+
+  - account: "Whiskey"
+    account_number: "4005"
+    category: "Revenue - Whiskey"
+    subcategory: "Product Line"
+    cash_timing: "immediate"
+    notes: "Whiskey product line revenue"
+
+  - account: "Shipping Income"
+    account_number: "4031"
+    category: "Revenue - Shipping"
+    subcategory: "Ancillary"
+    cash_timing: "with_order"
+    notes: "Shipping and handling charged to customers"
+
+  - account: "Misc. Income from Product Sales"
+    account_number: "4032"
+    category: "Revenue - Other"
+    subcategory: "Ancillary"
+    cash_timing: "immediate"
+    notes: "Gift wrap, rush shipping, other product-related income"
+
+  # Refunds and discounts (negative revenue)
+  - account: "Discounts & Rebates"
+    account_number: "4091"
+    category: "Revenue - Discounts"
+    subcategory: "Contra-Revenue"
+    cash_timing: "immediate"
+    notes: "Promotional discounts and rebates"
+
+  - account: "Refunds"
+    account_number: "4092"
+    category: "Revenue - Refunds"
+    subcategory: "Contra-Revenue"
+    cash_timing: "immediate"
+    notes: "Customer refunds and returns"
+
+# ============================================================================
+# COST OF GOODS SOLD
+# ============================================================================
+
+cogs:
+  # Platform fees
+  - account: "Platform Selling Fees"
+    account_number: "5011"
+    category: "COGS - Platform Fees"
+    subcategory: "Marketplace Fees"
+    cash_timing: "with_settlement"
+    notes: "Amazon referral fees, Shopify transaction fees, etc."
+
+  # Fulfillment
+  - account: "Third Party Fulfillment Fees"
+    account_number: "5021"
+    category: "COGS - Fulfillment"
+    subcategory: "FBA & 3PL"
+    cash_timing: "with_settlement"
+    notes: "FBA fees, 3PL warehouse fees"
+
+  # Product costs
+  - account: "Product Parts/Components of Finished Goods"
+    account_number: "5031"
+    category: "COGS - Materials"
+    subcategory: "Direct Materials"
+    cash_timing: "vendor_terms"  # Varies by vendor
+    notes: "Component parts for manufacturing"
+
+  # Shipping costs
+  - account: "Freight/Other Shipping Costs"
+    account_number: "5041"
+    category: "COGS - Shipping"
+    subcategory: "Outbound Freight"
+    cash_timing: "net_15"
+    notes: "Shipping to customers and FBA"
+
+  # Direct labor
+  - account: "Direct Labor"
+    account_number: "5051"
+    category: "COGS - Labor"
+    subcategory: "Manufacturing Labor"
+    cash_timing: "payroll_schedule"
+    notes: "Direct labor for product assembly/manufacturing"
+
+# ============================================================================
+# OPERATING EXPENSES - ADVERTISING & MARKETING
+# ============================================================================
+
+operating_outflows_advertising:
+  - account: "Advertising & Marketing"
+    account_number: "6010"
+    category: "OpEx - Marketing"
+    subcategory: "General Marketing"
+    cash_timing: "credit_card"
+    notes: "General advertising and marketing expenses"
+
+  - account: "Facebook Ad Spend"
+    account_number: "6011"
+    category: "OpEx - Marketing"
+    subcategory: "Digital Ads"
+    cash_timing: "credit_card"
+    notes: "Facebook/Meta advertising"
+
+  - account: "Google Ad Spend"
+    account_number: "6012"
+    category: "OpEx - Marketing"
+    subcategory: "Digital Ads"
+    cash_timing: "credit_card"
+    notes: "Google Ads spend"
+
+  - account: "Amazon Ad Spend"
+    account_number: "6013"
+    category: "OpEx - Marketing"
+    subcategory: "Platform Ads"
+    cash_timing: "amazon_settlement"
+    notes: "Amazon PPC advertising (deducted from settlements)"
+
+  - account: "Website"
+    account_number: "6014"
+    category: "OpEx - Marketing"
+    subcategory: "Digital Marketing"
+    cash_timing: "monthly"
+    notes: "Website hosting, domain, related costs"
+
+  - account: "Event Fees"
+    account_number: "6015"
+    category: "OpEx - Marketing"
+    subcategory: "Events & Trade Shows"
+    cash_timing: "immediate"
+    notes: "Trade show fees, event sponsorships"
+
+  - account: "Photography & Creative"
+    account_number: "6016"
+    category: "OpEx - Marketing"
+    subcategory: "Creative Services"
+    cash_timing: "net_30"
+    notes: "Product photography, creative services"
+
+  - account: "Digital Marketing Tools"
+    account_number: "6017"
+    category: "OpEx - Marketing"
+    subcategory: "Marketing Tech"
+    cash_timing: "monthly"
+    notes: "Marketing SaaS tools and platforms"
+
+  - account: "Sales Commissions"
+    account_number: "6018"
+    category: "OpEx - Marketing"
+    subcategory: "Sales Comp"
+    cash_timing: "monthly"
+    notes: "Sales commissions and incentives"
+
+  - account: "Agency Fees"
+    account_number: "6019"
+    category: "OpEx - Marketing"
+    subcategory: "Agency & Consultants"
+    cash_timing: "net_30"
+    notes: "Marketing agency retainers and fees"
+
+  - account: "TikTok Ad Spend"
+    account_number: "6022"
+    category: "OpEx - Marketing"
+    subcategory: "Digital Ads"
+    cash_timing: "credit_card"
+    notes: "TikTok advertising spend"
+
+  - account: "Branding & Creative"
+    account_number: "6029"
+    category: "OpEx - Marketing"
+    subcategory: "Brand Development"
+    cash_timing: "net_30"
+    notes: "Brand development and creative services"
+
+# ============================================================================
+# OPERATING EXPENSES - SELLING & FULFILLMENT
+# ============================================================================
+
+operating_outflows_selling:
+  - account: "Selling and Fulfillment"
+    account_number: "6020"
+    category: "OpEx - Selling"
+    subcategory: "General Selling"
+    cash_timing: "monthly"
+    notes: "General selling and fulfillment costs"
+
+  - account: "Other Merchant Fees"
+    account_number: "6023"
+    category: "OpEx - Selling"
+    subcategory: "Merchant Services"
+    cash_timing: "immediate"
+    notes: "Payment processing fees, merchant services"
+
+  - account: "Repairs & Maintenance"
+    account_number: "6024"
+    category: "OpEx - Facilities"
+    subcategory: "Maintenance"
+    cash_timing: "immediate"
+    notes: "Warehouse and equipment repairs"
+
+  - account: "Warehouse Supplies"
+    account_number: "6025"
+    category: "OpEx - Facilities"
+    subcategory: "Supplies"
+    cash_timing: "net_30"
+    notes: "Packing materials, warehouse supplies"
+
+  - account: "Equipment Rental"
+    account_number: "6026"
+    category: "OpEx - Facilities"
+    subcategory: "Equipment"
+    cash_timing: "monthly"
+    notes: "Forklift, pallet jack, equipment rentals"
+
+# ============================================================================
+# OPERATING EXPENSES - PROFESSIONAL SERVICES
+# ============================================================================
+
+operating_outflows_professional:
+  - account: "Professional Services"
+    account_number: "6030"
+    category: "OpEx - Professional"
+    subcategory: "General"
+    cash_timing: "net_30"
+    notes: "General professional services"
+
+  - account: "Legal"
+    account_number: "6032"
+    category: "OpEx - Professional"
+    subcategory: "Legal"
+    cash_timing: "net_30"
+    notes: "Legal fees and services"
+
+  - account: "Misc. Professional Fees"
+    account_number: "6033"
+    category: "OpEx - Professional"
+    subcategory: "Consulting"
+    cash_timing: "net_30"
+    notes: "Consultants and other professional fees"
+
+  - account: "Accounting"
+    account_number: "6034"
+    category: "OpEx - Professional"
+    subcategory: "Accounting"
+    cash_timing: "monthly"
+    notes: "Accounting and bookkeeping services"
+
+# ============================================================================
+# OPERATING EXPENSES - PAYROLL
+# ============================================================================
+
+operating_outflows_payroll:
+  - account: "Payroll Expense"
+    account_number: "6040"
+    category: "OpEx - Payroll"
+    subcategory: "Total Payroll"
+    cash_timing: "payroll_schedule"
+    notes: "Total payroll expense"
+
+  - account: "Gross Wages"
+    account_number: "6041"
+    category: "OpEx - Payroll"
+    subcategory: "Wages"
+    cash_timing: "payroll_schedule"
+    notes: "Gross wages and salaries"
+
+  - account: "Employer Taxes"
+    account_number: "6042"
+    category: "OpEx - Payroll"
+    subcategory: "Payroll Taxes"
+    cash_timing: "payroll_schedule"
+    notes: "Employer portion of payroll taxes"
+
+  - account: "Employee Benefits"
+    account_number: "6043"
+    category: "OpEx - Payroll"
+    subcategory: "Benefits"
+    cash_timing: "monthly"
+    notes: "Health insurance, 401k, other benefits"
+
+  - account: "Contract Services"
+    account_number: "6044"
+    category: "OpEx - Payroll"
+    subcategory: "Contractors"
+    cash_timing: "net_30"
+    notes: "1099 contractors and contract labor"
+
+# ============================================================================
+# OPERATING EXPENSES - SG&A
+# ============================================================================
+
+operating_outflows_sga:
+  - account: "SG&A"
+    account_number: "6050"
+    category: "OpEx - SG&A"
+    subcategory: "General"
+    cash_timing: "monthly"
+    notes: "General SG&A expenses"
+
+  - account: "Auto"
+    account_number: "6051"
+    category: "OpEx - SG&A"
+    subcategory: "Auto"
+    cash_timing: "credit_card"
+    notes: "Auto expenses for business vehicles"
+
+  - account: "Travel"
+    account_number: "6052"
+    category: "OpEx - SG&A"
+    subcategory: "Travel"
+    cash_timing: "credit_card"
+    notes: "Business travel expenses"
+
+  - account: "Meals (100%)"
+    account_number: "6053"
+    category: "OpEx - SG&A"
+    subcategory: "Meals"
+    cash_timing: "credit_card"
+    notes: "Meals - 100% deductible (travel meals)"
+
+  - account: "Meals (50%)"
+    account_number: "6054"
+    category: "OpEx - SG&A"
+    subcategory: "Meals"
+    cash_timing: "credit_card"
+    notes: "Meals - 50% deductible (client entertainment)"
+
+  - account: "Rent & Lease"
+    account_number: "6055"
+    category: "OpEx - SG&A"
+    subcategory: "Rent"
+    cash_timing: "monthly"
+    notes: "Office/warehouse rent and equipment leases"
+
+  - account: "Utilities"
+    account_number: "6056"
+    category: "OpEx - SG&A"
+    subcategory: "Utilities"
+    cash_timing: "monthly"
+    notes: "Phone, internet, electricity, gas, water"
+
+  - account: "Insurance"
+    account_number: "6057"
+    category: "OpEx - SG&A"
+    subcategory: "Insurance"
+    cash_timing: "monthly"
+    notes: "Business insurance (liability, property, etc.)"
+
+  - account: "Bank Charges & Fees"
+    account_number: "6058"
+    category: "OpEx - SG&A"
+    subcategory: "Banking"
+    cash_timing: "immediate"
+    notes: "Bank fees and service charges"
+
+  - account: "Dues & subscriptions"
+    account_number: "6059"
+    category: "OpEx - SG&A"
+    subcategory: "Subscriptions"
+    cash_timing: "monthly"
+    notes: "Professional dues and memberships"
+
+  - account: "Equipment < $2500"
+    account_number: "6061"
+    category: "OpEx - SG&A"
+    subcategory: "Equipment"
+    cash_timing: "credit_card"
+    notes: "Small equipment purchases (expensed)"
+
+  - account: "Licenses"
+    account_number: "6062"
+    category: "OpEx - SG&A"
+    subcategory: "Licenses"
+    cash_timing: "annual"
+    notes: "Business licenses and permits"
+
+  - account: "Office Supplies"
+    account_number: "6063"
+    category: "OpEx - SG&A"
+    subcategory: "Supplies"
+    cash_timing: "credit_card"
+    notes: "Office, kitchen, and bathroom supplies"
+
+  - account: "Software"
+    account_number: "6064"
+    category: "OpEx - SG&A"
+    subcategory: "Software"
+    cash_timing: "monthly"
+    notes: "Software subscriptions and tools"
+
+# ============================================================================
+# OTHER INCOME & EXPENSES
+# ============================================================================
+
+other_income:
+  - account: "Interest Earned"
+    account_number: "7930"
+    category: "Other Income"
+    subcategory: "Interest"
+    cash_timing: "monthly"
+    notes: "Interest earned on bank accounts"
+
+  - account: "Other Income"
+    account_number: "7910"
+    category: "Other Income"
+    subcategory: "Miscellaneous"
+    cash_timing: "immediate"
+    notes: "Other miscellaneous income"
+
+other_expenses:
+  - account: "Interest Paid"
+    account_number: "8030"
+    category: "Interest Expense"
+    subcategory: "Debt Service"
+    cash_timing: "monthly"
+    notes: "Interest on loans, LOC, credit cards"
+    is_cash: true
+
+  - account: "Depreciation Expense"
+    account_number: "7920"
+    category: "Depreciation"
+    subcategory: "Non-Cash"
+    cash_timing: "non_cash"
+    notes: "Depreciation - NON-CASH EXPENSE"
+    is_cash: false
+
+  - account: "Exchange Gain or Loss"
+    account_number: "8040"
+    category: "FX Gain/Loss"
+    subcategory: "Non-Cash"
+    cash_timing: "non_cash"
+    notes: "Foreign exchange gains/losses - NON-CASH"
+    is_cash: false
+
+# ============================================================================
+# INVESTING ACTIVITIES
+# ============================================================================
+
+investing_outflows:
+  - account: "Computer"
+    account_type: "Fixed Assets"
+    category: "CapEx - Technology"
+    subcategory: "Computers"
+    cash_timing: "immediate"
+    notes: "Computer equipment purchases"
+
+  - account: "Product Manufacturing"
+    account_type: "Fixed Assets"
+    category: "CapEx - Manufacturing"
+    subcategory: "Equipment"
+    cash_timing: "vendor_terms"
+    notes: "Manufacturing equipment and tooling"
+
+  - account: "IP"
+    account_type: "Fixed Assets"
+    category: "CapEx - Intangibles"
+    subcategory: "IP"
+    cash_timing: "immediate"
+    notes: "Intellectual property purchases"
+
+  - account: "Whiskey Product Launch"
+    account_type: "Fixed Assets"
+    category: "CapEx - Product Development"
+    subcategory: "NPI"
+    cash_timing: "project_based"
+    notes: "Whiskey product development costs capitalized"
+
+# ============================================================================
+# FINANCING ACTIVITIES
+# ============================================================================
+
+financing_inflows:
+  - account: "SBA Loan"
+    account_number: "SBA Loan"
+    account_type: "Long Term Liabilities"
+    category: "Financing - Debt"
+    subcategory: "SBA LOC Draws"
+    cash_timing: "immediate"
+    notes: "$500k SBA revolving LOC draws"
+
+  - account: "IDEA Capital LOC"
+    account_type: "Other Current Liabilities"
+    category: "Financing - Debt"
+    subcategory: "LOC Draws"
+    cash_timing: "immediate"
+    notes: "IDEA Capital line of credit draws"
+
+  - account: "Priority LOC"
+    account_type: "Other Current Liabilities"
+    category: "Financing - Debt"
+    subcategory: "LOC Draws"
+    cash_timing: "immediate"
+    notes: "Priority LOC draws"
+
+  - account: "Paid In Capital"
+    account_type: "Equity"
+    category: "Financing - Equity"
+    subcategory: "Capital Contributions"
+    cash_timing: "immediate"
+    notes: "Equity investments and capital contributions"
+
+financing_outflows:
+  - account: "SBA Loan"
+    account_number: "SBA Loan"
+    account_type: "Long Term Liabilities"
+    category: "Financing - Debt Service"
+    subcategory: "SBA Loan Payments"
+    cash_timing: "monthly"
+    notes: "SBA loan principal and interest payments"
+    split_principal_interest: true
+
+  - account: "Notes Payable"
+    account_type: "Long Term Liabilities"
+    category: "Financing - Debt Service"
+    subcategory: "Note Payments"
+    cash_timing: "monthly"
+    notes: "Notes payable principal and interest"
+    split_principal_interest: true
+
+  - account: "Randall Pawlik Draws"
+    account_type: "Equity"
+    category: "Financing - Distributions"
+    subcategory: "Owner Draws"
+    cash_timing: "irregular"
+    notes: "Owner distributions"
+
+  - account: "Lisa Pawlik Draws"
+    account_type: "Equity"
+    category: "Financing - Distributions"
+    subcategory: "Owner Draws"
+    cash_timing: "irregular"
+    notes: "Owner distributions"
+
+# ============================================================================
+# NON-CASH ITEMS (Exclude from cash flow)
+# ============================================================================
+
+non_cash_items:
+  - account: "Depreciation Expense"
+    account_number: "7920"
+    notes: "Depreciation - exclude from cash flow"
+
+  - account: "Accumulated Depreciation"
+    account_type: "Fixed Assets"
+    notes: "Contra-asset - exclude from cash flow"
+
+  - account: "Exchange Gain or Loss"
+    account_number: "8040"
+    notes: "FX gains/losses - exclude from cash flow"
+
+  - account: "Deferred Revenue"
+    account_type: "Other Current Liabilities"
+    notes: "Deferred revenue - timing difference, handle separately"
+
+# ============================================================================
+# CLEARING & RECONCILIATION ACCOUNTS (Special handling)
+# ============================================================================
+
+clearing_accounts:
+  - account: "Channel Clearing Account:Clearing - Amazon"
+    account_number: "1101"
+    notes: "Amazon settlement clearing - reconcile to deposits"
+
+  - account: "Channel Clearing Account:Clearing - Shopify"
+    account_number: "1102"
+    notes: "Shopify payout clearing - reconcile to deposits"
+
+  - account: "Bill.com Money In Clearing"
+    account_number: "1071"
+    notes: "Bill.com receivables clearing"
+
+  - account: "Bill.com Money Out Clearing"
+    account_number: "1072"
+    notes: "Bill.com payables clearing"
+
+  - account: "Undeposited Funds"
+    notes: "QB undeposited funds - reconcile to bank deposits"

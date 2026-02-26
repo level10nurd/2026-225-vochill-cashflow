@@ -1,0 +1,315 @@
+# VoChill Payment Timing Reference
+#
+# This file documents the timing between when transactions occur
+# and when cash actually moves. Critical for accurate cash flow forecasting.
+
+# ============================================================================
+# REVENUE PAYMENT TIMING
+# ============================================================================
+
+revenue_timing:
+  amazon_settlement:
+    description: "Amazon settlement payout cycle"
+    cycle: "bi-weekly"
+    settlement_period_days: 14
+    payout_lag_days: 2
+    payout_day: "varies"  # Determined by settlement cycle
+    example: "Order on Feb 1 → Settlement period Feb 1-14 → Deposit Feb 16"
+    notes: |
+      Amazon runs bi-weekly settlement cycles. Orders are accumulated during
+      the 14-day settlement period, then deposited 2 days after settlement close.
+      The settlement includes all orders, fees, refunds, and advertising costs.
+
+      Reserve policy: Amazon may hold reserves for new sellers or policy violations.
+      This can materially impact cash timing.
+
+  shopify_payout:
+    description: "Shopify payout schedule"
+    cycle: "daily"
+    payout_lag_days: 2
+    payout_days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+    weekend_handling: "next_business_day"
+    example: "Order on Monday → Payout on Wednesday"
+    notes: |
+      Shopify processes payouts every weekday for transactions from 2-3 days prior.
+      Weekends and holidays push payouts to next business day.
+
+      Payout includes gross sales minus:
+      - Shopify transaction fees (typically 2.9% + $0.30 for online)
+      - Shopify subscription fees
+      - App fees
+      - Refunds and chargebacks
+
+  tiktok_payout:
+    description: "TikTok Shop payout schedule"
+    cycle: "TBD"
+    payout_lag_days: null
+    notes: |
+      TODO: Document TikTok Shop payout timing once data is available.
+      Likely similar to other platforms (weekly or bi-weekly).
+
+  wholesale_net30:
+    description: "Wholesale B2B payment terms"
+    cycle: "invoice_based"
+    payment_terms: "Net 30"
+    typical_payment_days: 35
+    notes: |
+      Wholesale customers typically on Net 30 terms.
+      Actual payment often runs 35-45 days due to AP processing delays.
+      Monitor DSO by customer.
+
+  wholesale_net15:
+    description: "Accelerated wholesale terms"
+    cycle: "invoice_based"
+    payment_terms: "Net 15"
+    typical_payment_days: 18
+    notes: "For select wholesale partners with faster payment"
+
+# ============================================================================
+# EXPENSE PAYMENT TIMING
+# ============================================================================
+
+expense_timing:
+  credit_card:
+    description: "Credit card payment cycle"
+    payment_delay_days: 30  # Average across cards
+    notes: |
+      Expense incurred → Statement date → Payment due 21-25 days later.
+
+      Cards in use:
+      - AMEX Gold Card
+      - Chase Inc
+      - Shopify Credit Card
+      - Southwest Card (multiple employee cards)
+
+      Forecast assumption: Expenses hit cash 30 days after incurred.
+
+  bill_com:
+    description: "Bill.com scheduled payments"
+    payment_delay_days: 0  # Scheduled in advance
+    notes: |
+      Bill.com used for vendor payment scheduling.
+      Payments scheduled based on vendor terms or cash availability.
+      Track Bill.com clearing accounts for timing.
+
+  vendor_net30:
+    description: "Standard vendor terms"
+    payment_terms: "Net 30"
+    actual_payment_days: 32
+    notes: "Most vendors on Net 30, we typically pay on time"
+
+  vendor_net15:
+    description: "Fast-pay vendor terms"
+    payment_terms: "Net 15"
+    actual_payment_days: 15
+    notes: "Some critical vendors on Net 15 terms"
+
+  vendor_net60:
+    description: "Extended vendor terms"
+    payment_terms: "Net 60"
+    actual_payment_days: 60
+    notes: "Select vendors with extended terms"
+
+  vendor_prepaid:
+    description: "Prepaid or COD vendors"
+    payment_timing: "immediate"
+    actual_payment_days: 0
+    notes: "Payment due before/with shipment"
+
+  payroll_schedule:
+    description: "Payroll processing schedule"
+    frequency: "bi-weekly"  # Or semi-monthly - TBD
+    payment_days: [15, 30]  # TBD - confirm actual schedule
+    employer_tax_timing: "with_payroll"
+    benefits_timing: "monthly"
+    notes: |
+      TODO: Confirm exact payroll schedule
+      Payroll taxes remitted with payroll
+      Benefits (health insurance, 401k) typically monthly
+
+  monthly_recurring:
+    description: "Monthly recurring charges"
+    payment_day: 1  # Or actual day of month
+    notes: |
+      Software subscriptions, SaaS tools, rent, utilities
+      Most charge on 1st of month or anniversary date
+
+  amazon_settlement_fees:
+    description: "Platform fees deducted from Amazon settlements"
+    payment_timing: "with_settlement"
+    notes: |
+      Amazon deducts fees directly from settlements:
+      - Referral fees (commission)
+      - FBA fulfillment fees
+      - FBA storage fees (monthly)
+      - PPC advertising costs (settled weekly, deducted from bi-weekly settlement)
+
+      These never hit bank accounts separately - net proceeds only.
+
+  shopify_fees:
+    description: "Shopify platform fees"
+    payment_timing: "with_payout"
+    notes: |
+      Shopify deducts from payouts:
+      - Transaction fees (2.9% + $0.30)
+      - Subscription fees (monthly, prorated)
+      - App fees
+
+      Net proceeds deposited to bank.
+
+# ============================================================================
+# FINANCING PAYMENT TIMING
+# ============================================================================
+
+financing_timing:
+  sba_loan:
+    description: "SBA $500k Revolving LOC"
+    lender: "Frost Bank"
+    loan_number: "5853239110"
+
+    interest_only_period:
+      start_date: "2024-05-30"
+      duration_months: 24
+      end_date: "2026-05-30"
+      payment_frequency: "monthly"
+      payment_day: 30  # Same as note date
+
+    amortization_period:
+      start_date: "2026-06-01"
+      duration_months: 60
+      payment_frequency: "monthly"
+      payment_day: 30
+
+    interest_rate:
+      type: "variable"
+      base: "Prime Rate"
+      spread: 2.25
+      initial_rate: 10.75
+      adjustment_frequency: "monthly"
+      adjustment_day: 1  # First calendar day of month
+
+    notes: |
+      Revolving line of credit - can draw, repay, and re-borrow during I/O period.
+      After I/O period, principal amortizes over 60 months.
+
+      Interest calculated on daily balance, paid monthly.
+      Rate adjusts monthly based on Prime Rate.
+
+      Late fee: 5% if payment more than 10 days late.
+
+  idea_capital_loc:
+    description: "IDEA Capital Line of Credit"
+    notes: "TODO: Document terms when available"
+
+  priority_loc:
+    description: "Priority LOC"
+    notes: "TODO: Document terms when available"
+
+  investor_notes:
+    description: "Various investor notes payable"
+    notes: |
+      Multiple notes to various investors documented in QB.
+      Terms vary by note - review individual agreements.
+
+# ============================================================================
+# SEASONALITY & PATTERN ADJUSTMENTS
+# ============================================================================
+
+seasonality:
+  ecommerce_revenue:
+    pattern: "holiday_peaked"
+    peak_months: [10, 11, 12]  # Oct, Nov, Dec
+    peak_multiplier: 2.5
+    low_months: [1, 2, 3]  # Jan, Feb, Mar
+    low_multiplier: 0.6
+    notes: |
+      Wine chiller products are heavily gift-oriented.
+      Q4 (especially Nov-Dec) drives 40-50% of annual revenue.
+      Q1 is slowest period.
+
+      Forecast should account for this pattern.
+
+  inventory_buildup:
+    timing: "Q3"
+    months: [7, 8, 9]
+    notes: |
+      Inventory typically built up in Q3 for Q4 peak season.
+      Large cash outflows for inventory purchases in July-September.
+
+  advertising_spend:
+    pattern: "revenue_correlated"
+    notes: |
+      Ad spend typically ramps with revenue expectations.
+      Higher spend in Q3 (building for Q4) and Q4.
+      Lower in Q1 post-holiday.
+
+# ============================================================================
+# CASH FLOW CALCULATION RULES
+# ============================================================================
+
+calculation_rules:
+  revenue_recognition_vs_cash:
+    principle: "cash_basis_for_forecast"
+    notes: |
+      For cash flow forecasting, use cash basis:
+      - Revenue recognized when CASH RECEIVED (payout date)
+      - Expenses recognized when CASH PAID (payment date)
+
+      This differs from GAAP accrual accounting in QuickBooks.
+
+  platform_fee_treatment:
+    principle: "net_proceeds_only"
+    notes: |
+      Amazon and Shopify fees are deducted before payout.
+      Forecast should use NET PROCEEDS, not gross revenue minus fees.
+
+      Example:
+        Gross Amazon sales: $10,000
+        Amazon fees: $2,000
+        Net proceeds: $8,000 ← Use this for cash flow forecast
+
+  settlement_timing_precision:
+    principle: "use_actual_dates"
+    notes: |
+      Don't estimate settlement dates - use actual dates from:
+      - Amazon: settlement reports with deposit dates
+      - Shopify: payout reports with payout dates
+
+      Historical precision = forecast precision.
+
+  working_capital_changes:
+    principle: "track_separately"
+    notes: |
+      Changes in working capital (AR, Inventory, AP) affect cash.
+      These should be tracked separately from operating cash flow.
+
+      Example: $50k inventory purchase is cash outflow even if not expensed yet.
+
+# ============================================================================
+# FORECAST ASSUMPTIONS (Baseline)
+# ============================================================================
+
+forecast_assumptions:
+  revenue_growth:
+    baseline: "3_month_average"
+    growth_rate: 0.0  # Conservative: flat unless adjusted
+    notes: "Use trailing 3-month average as baseline, adjust for seasonality"
+
+  expense_growth:
+    baseline: "3_month_average"
+    inflation_adjustment: 1.03  # 3% annual inflation
+    notes: "Expenses assumed to grow with inflation unless specified"
+
+  payment_timing_variance:
+    typical_variance_days: 2
+    notes: |
+      Actual payment timing can vary +/- 2 days from scheduled.
+      Build 2-day buffer in weekly cash projections.
+
+  cash_buffer_target:
+    minimum_cash: 50000  # $50k minimum cash balance
+    target_cash: 100000  # $100k target cash cushion
+    notes: |
+      Maintain minimum $50k cash balance.
+      Target $100k for comfortable operations.
+      Flag when projected to breach minimum.
