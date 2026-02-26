@@ -1,0 +1,46 @@
+# Stearns Bank Equipment Finance Agreement
+# Agreement #: 3167670-002
+# Funded through Priority Capital
+# Signed: March 11, 2025
+
+loan_id: "stearns_equipment_2025"
+loan_name: "Stearns Bank Equipment Loan - Blow Mold & Fill Stations"
+lender: "Stearns Bank National Association"
+loan_type: "Equipment Loan"
+
+# Loan amounts
+original_amount: 31040.00
+current_balance: 31040.00  # Brand new loan (March 2025)
+
+# Interest rate (back-calculated to match actual payment)
+# Total payments: $684.99 × 60 = $41,099.40
+# Total finance charge: $10,059.40
+# Calculated equivalent APR: 11.65% (results in $684.99/month payment)
+annual_rate: 0.116516
+
+# Payment timing
+payment_day: 6  # 6th of each month per Delivery & Acceptance Certification
+
+# Loan term dates
+start_date: "2025-03-06"  # Effective date per agreement
+maturity_date: "2030-03-06"  # 60 months from start
+
+# Payment structure
+# Fixed payment equipment finance agreement (60-month amortization)
+structure_choice: "2"  # P&I from start
+io_months: 0
+amort_months: 60  # 60 monthly payments
+fixed_payment: null
+balloon_amount: null
+
+# Equipment Details (for reference)
+# - 4-Cavity Blow Mold
+# - Fill Stations Fixtures
+# Location: 2025 Ragu Drive, Owensboro, KY 42303
+
+# Notes:
+# - Non-cancelable equipment finance agreement
+# - First payment: April 6, 2025
+# - Early buyout discount available (Net Investment + 1-5% based on months remaining)
+# - ACH auto-pay set up from Frost Bank account (Staychill account #592023512)
+# - Personal guarantees: Randall Eugene Pawlik & Lisa Michelle Pawlik
